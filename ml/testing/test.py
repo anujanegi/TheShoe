@@ -10,14 +10,14 @@ models=[]
 files = os.listdir('../src/')
 for file_ in files:
     if ".json" in file_:
-        json_file = open('../src/model_user2.json', 'r')
+        json_file = open("../src/"+file_, 'r')
         model_json = json_file.read()
         json_file.close()
         model = model_from_json(model_json)
-        model.load_weights("../src/model.h5")
+        model.load_weights("../src/"+file_.split(".")[0]+".h5")
         models.append(model)
 
-array = np.asarray([1.9810546875, -2.9715820313, 8.6108886719, 0.123815918, -0.185723877,0.538180542])
+array = np.asarray([1.4953613281,-8.7496582031,-1.4283691406,0.093460083,-0.5468536377,-0.0892730713])
 array = np.expand_dims(array, axis=0)
 
 for model in models:

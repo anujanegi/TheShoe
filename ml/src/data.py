@@ -12,7 +12,7 @@ def load_data():
     dataset = pandas.read_csv("../dataset/user2/Data.csv", header=None)
     data = dataset.values
     coordinates = data[:,0:3].astype(float)
-    X = data[:,0:6].astype(float)
+    X = data[:,0:3].astype(float)
     Y = data[:,6].astype(int)
 
     X = np.array(X, dtype = "float")
