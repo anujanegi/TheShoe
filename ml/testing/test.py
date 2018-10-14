@@ -1,3 +1,4 @@
+import tensorflow as tf
 from keras.models import model_from_json
 from keras.preprocessing.image import img_to_array
 from keras.models import load_model
@@ -9,12 +10,14 @@ models=[]
 
 #load models
 users = os.listdir('../src/Models')
-for file_ in os.listdir('../src/Models/'+users):
-    if ".h5" in file_:
-        model = model.load_model("../src/"+file_)
-        models.append(model)
+for user in users:
+    for file_ in os.listdir('../src/Models/'+user):
+        if ".h5" in file_:
+            filepath = "../src/Models/"+user+"/"+file_
+            model = tf.keras.models.load_model(filepath, custom_objects=None,compile=True)
+            models.append(model)
 
-array = np.asarray([1.4953613281,-8.7496582031,-1.4283691406,0.093460083,-0.5468536377,-0.0892730713])
+array = np.asarray([-1.2895996094,0.2153320313,9.4100097656,-0.0805999756,0.013458252,0.5881256104])
 array = np.expand_dims(array, axis=0)
 
 for model in models:

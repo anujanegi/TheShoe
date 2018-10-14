@@ -11,7 +11,7 @@ trainX, trainY, testX, testY = load_data()
 model = fit_model(compile_model(def_model(6)), trainX, trainY, testX, testY)
 evaluate(model, trainX, trainY)
 
-filename = "./Models/user1/model.h5"
+filename = "./Models/user2/model.h5"
 tf.keras.models.save_model(model, filename)
 converter = tf.contrib.lite.TocoConverter.from_keras_model_file(filename)
 tflite_model = converter.convert()

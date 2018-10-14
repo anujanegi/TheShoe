@@ -16,14 +16,11 @@ def def_model(num_of_features) :
     return model
 
 def compile_model(model):
-    model.compile(loss=tf.keras.losses.categorical_crossentropy,
-                  optimizer=tf.keras.optimizers.RMSprop(lr=0.0001),
-                  metrics=[tf.keras.metrics.categorical_accuracy],)
+    model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
     return model
 
 def fit_model(model, trainX, trainY, testX, testY):
-    model.train_on_batch(trainX, trainY)
-    model.test_on_batch(testX, testY)
+    model.fit(trainX, trainY, epochs=200, verbose=0, batch_size=10, validation_data=(testX, testY))
     return model
 
 def evaluate(model, X, Y):
