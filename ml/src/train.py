@@ -1,15 +1,18 @@
 import numpy as np
 import pickle
-from keras.models import model_from_json
+import tensorflow as tf
+from keras.models import load_model
 from data import *
 from model import *
 
 np.random.seed(399)
 trainX, trainY, testX, testY = load_data()
+# print(trainX.shape, trainY.shape)
 model = fit_model(compile_model(def_model(3)), trainX, trainY, testX, testY)
 evaluate(model, trainX, trainY)
 
-model_json = model.to_json()
-with open("model_user_2.json", "w") as json_file:
-    json_file.write(model_json)
-model.save_weights("model_user_2.h5")
+filename = "model_user1.h5"
+tf.keras.models.save_model(model, filename)
+converter = tf.contrib.lite.TocoConverter.from_keras_model_file(keras_file)
+tflite_model = converter.convert()
+open("model_user1.tflite", "wb").write(tflite_model)

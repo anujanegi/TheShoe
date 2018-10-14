@@ -6,15 +6,12 @@ import cv2
 import os
 
 models=[]
-#load model
+
+#load models
 files = os.listdir('../src/')
 for file_ in files:
-    if ".json" in file_:
-        json_file = open("../src/"+file_, 'r')
-        model_json = json_file.read()
-        json_file.close()
-        model = model_from_json(model_json)
-        model.load_weights("../src/"+file_.split(".")[0]+".h5")
+    if ".h5" in file_:
+        model = model.load_model("../src/"+file_)
         models.append(model)
 
 array = np.asarray([1.4953613281,-8.7496582031,-1.4283691406,0.093460083,-0.5468536377,-0.0892730713])

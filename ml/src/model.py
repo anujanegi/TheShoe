@@ -8,19 +8,21 @@ from keras import layers
 
 def def_model(num_of_features) :
 
-    model = models.Sequential()
-    model.add(layers.Dense(units=100, activation='relu', input_shape=(num_of_features,)))
-    model.add(layers.Dense(units=50, activation='relu'))
-    model.add(layers.Dense(units=5, activation='softmax'))
-
+    model = tf.keras.models.Sequential()
+    model.add(tf.keras.layers.Dense(100, activation='relu', input_shape=(num_of_features,)))
+    model.add(tf.keras.layers.Dense(50, activation='relu'))
+    model.add(tf.keras.layers.Dense(5, activation='softmax'))
     return model
 
 def compile_model(model):
-    model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+    model.compile(loss=tf.keras.losses.categorical_crossentropy,
+                  optimizer=tf.keras.optimizers.RMSprop(lr=0.0001),
+                  metrics=[tf.keras.metrics.categorical_accuracy],)
     return model
 
 def fit_model(model, trainX, trainY, testX, testY):
-    model.fit(trainX, trainY, epochs=200, verbose=0, batch_size=10, validation_data=(testX, testY))
+    model.train_on_batch(trainX, trainY)
+    model.test_on_batch(testX, testY)
     return model
 
 def evaluate(model, X, Y):
