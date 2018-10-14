@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menu_item_activity"
+        app:showAsAction="always"
+        android:title="@string/activity"
+        android:icon="@drawable/round_accessibility_new_black_24"/>
+
+    <item android:id="@+id/menu_item_train"
+        app:showAsAction="always"
+        android:title="@string/train"
+        android:icon="@drawable/round_cloud_upload_black_24" />
+
+    <item android:id="@+id/menu_item_profile"
+        app:showAsAction="always"
+        android:title="@string/profile"
+        android:icon="@drawable/round_account_circle_black_24dp"/>
+</menu>

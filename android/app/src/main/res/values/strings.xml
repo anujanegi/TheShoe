@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TheShoe</string>
+    <string name="train">Train</string>
+    <string name="profile">Profile</string>
+    <string name="activity">Activity</string>
+    <string name="sign_out">Sign out</string>
+    <string name="help_activity_fragment">Cannot see any activity? Try training the model.</string>
+    <string name="select_activity">Select an activity to continue!</string>
+</resources>
