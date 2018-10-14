@@ -1,4 +1,5 @@
 import numpy as np
+import tensorflow as tf
 from keras.datasets import reuters
 from keras.utils.np_utils import to_categorical
 from keras.preprocessing.text import Tokenizer

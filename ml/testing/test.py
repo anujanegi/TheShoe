@@ -8,8 +8,8 @@ import os
 models=[]
 
 #load models
-files = os.listdir('../src/')
-for file_ in files:
+users = os.listdir('../src/Models')
+for file_ in os.listdir('../src/Models/'+users):
     if ".h5" in file_:
         model = model.load_model("../src/"+file_)
         models.append(model)
