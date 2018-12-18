@@ -1,8 +1,8 @@
 # The Shoe
-A smart shoe for user activity recognition and gait learning for user identity detetcion.
+A smart shoe for user activity recognition and gait learning for user identity detection.
 
 ## What is it?
-The shoe is a wearable module prototype that can be taught how to differentiate between various user activities. Further, these user activiteis can be used to learn the user' gait.
+The shoe is a wearable module prototype that can be taught how to differentiate between various user activities. Further, these user activities can be used to learn the user' gait.
 **Gait** is the manner of walking an there are wide evidences of literature supporting that gait is unique for everyone. Gait can be used for a secure identification system. See more about gait [here](http://users.umiacs.umd.edu/~kale/avbpa.pdf).
 
 The system recognises the following user activities - 
