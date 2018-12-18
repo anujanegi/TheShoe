@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 # x, y, z, ADCx,  ADCy,  ADCz, label
 
 def load_data():
-    dataset = pandas.read_csv("../dataset/user1/DataWalk.csv", header=None)
+    dataset = pandas.read_csv("./dataset/user1/DataWalk.csv", header=None)
     data = dataset.values
     # X=[]
     # Y=[]

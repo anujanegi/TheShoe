@@ -10,11 +10,11 @@ models=[]
 labels=[]
 
 #load models
-users = os.listdir('../src/Models')
+users = os.listdir('../models')
 for user in users:
-    for file_ in os.listdir('../src/Models/'+user):
+    for file_ in os.listdir('../models/'+user):
         if "modeltest.h5" in file_:
-            filepath = "../src/Models/"+user+"/"+file_
+            filepath = "../models/"+user+"/"+file_
             print(filepath)
             model = tf.keras.models.load_model(filepath, custom_objects=None,compile=True)
             models.append(model)
